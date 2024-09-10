@@ -1,0 +1,18 @@
+.img-resized {
+    width: 65%; /* Ajusta el ancho según tus necesidades */
+    max-height: 300px; /* Ajusta la altura máxima deseada */
+  }
+  
+  .btn-resized {
+    font-size: 1.5rem; /* Ajusta el tamaño de la fuente */
+    padding: 1rem 2rem; /* Ajusta el relleno */
+  }
+
+  .sombra {
+    box-shadow: rgba(0, 128, 0, 0.4) 5px 5px,        /* Verde oscuro con opacidad 0.4 */
+                rgba(0, 255, 0, 0.3) 10px 10px,      /* Verde brillante con opacidad 0.3 */
+                rgba(144, 238, 144, 0.2) 15px 15px,   /* Verde claro con opacidad 0.2 */
+                rgba(144, 238, 144, 0.1) 20px 20px,   /* Verde claro con opacidad 0.1 */
+                rgba(144, 238, 144, 0.05) 25px 25px;  /* Verde claro con opacidad 0.05 */
+}
+

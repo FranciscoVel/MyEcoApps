@@ -1,0 +1,114 @@
+/* Estilo para la card del título */
+.card-title-inc {
+    background: linear-gradient(135deg, #196f3d, #4caf50); /* Gradiente de verde */
+    border-radius: 20px; /* Radio de borde más pequeño */
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 20px; /* Sombra más suave */
+    padding: 30px; /* Mayor espacio interno */
+    color: #fff; /* Texto blanco */
+    text-align: center; /* Centrar el texto */
+    position: relative; /* Posición relativa para el pseudo-elemento */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+}
+
+.card-title-inc::before {
+    content: "";
+    position: absolute;
+    top: -20%;
+    left: -20%;
+    width: 140%;
+    height: 140%;
+    background: rgba(255, 255, 255, 0.1); /* Capa blanca semitransparente */
+    border-radius: 50%;
+    z-index: 0; /* Colocar detrás del contenido */
+    transform: rotate(-30deg); /* Rotar para un efecto dinámico */
+}
+
+.card-body-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    z-index: 1; /* Colocar encima del pseudo-elemento */
+    position: relative; /* Necesario para el z-index */
+    color: #fff; /* Texto blanco para contraste */
+}
+
+h1 {
+    font-size: 2.5rem; /* Tamaño de fuente más grande */
+    font-weight: bold; /* Negrita */
+    text-shadow: rgba(0, 0, 0, 0.3) 2px 2px 5px; /* Sombra de texto para destacar */
+    margin-bottom: 0; /* Eliminar margen inferior */
+}
+
+/* Estilo para la card del manual */
+.card.shadow-lg {
+    border-radius: 20px; /* Radio de borde más pequeño */
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px; /* Sombra suave */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+}
+
+.card-body {
+    padding: 20px; /* Ajustar relleno */
+}
+
+.card-title {
+    font-size: 1.75rem; /* Tamaño de fuente del título de la card */
+    font-weight: bold; /* Negrita */
+}
+
+.card-body .lead {
+    font-size: 1.125rem; /* Tamaño de fuente para el texto de lead */
+}
+
+.btn-outline-success {
+    border-radius: 20px; /* Radio de borde para los botones */
+    font-size: 1.125rem; /* Tamaño de fuente del botón */
+    padding: 10px 20px; /* Ajustar relleno */
+}
+
+/* Estilo para las cards de descarga */
+.card.border-dark {
+    border-radius: 15px; /* Radio de borde para las cards de descarga */
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px; /* Sombra más ligera */
+    background-color: #fff; /* Fondo blanco */
+    width: 300px; /* Ajusta el valor según sea necesario */
+    height: auto; /* Deja que la altura se ajuste automáticamente */
+}
+
+
+
+.card-img-top {
+    border-radius: 15px 15px 0 0; /* Bordes redondeados solo en la parte superior */
+    margin-bottom: 15px; /* Margen debajo de la imagen */
+    padding: 20px; /* Añadir relleno alrededor de la imagen */
+}
+
+.card-body.card-body-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.card-title.card-title-center {
+    font-size: 1.25rem; /* Tamaño de fuente del título de la card de descarga */
+    font-weight: bold; /* Negrita */
+    margin-bottom: 0.5rem; /* Espacio debajo del título */
+}
+
+.card-text {
+    font-size: 1rem; /* Tamaño de fuente para el texto */
+    margin-bottom: 1rem; /* Espacio debajo del texto */
+}
+
+.btn-outline-success {
+    border-radius: 15px; /* Radio de borde para los botones */
+    font-size: 1rem; /* Tamaño de fuente del botón */
+    padding: 8px 16px; /* Ajustar relleno */
+}
+.texto-negro {
+    color: #000; /* Color del texto negro */
+}
+

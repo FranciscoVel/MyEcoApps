@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a tu Portal MyEcoApps</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="../static/css/InicioSesion.css" rel="stylesheet">
+    <link href="../static/css/navBar.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+  <!--NavBar barra de navegación con sombra y barra inferior-->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container d-flex justify-content-center">
+        <div class="navbar-collapse collapse d-flex justify-content-center">
+            <a class="navbar-brand mx-auto text-white fw-bold d-flex align-items-center" href="#">
+                <img src="{{ url_for('static', filename='Imagenes/imgEcopetrol.jpg') }}" class="me-2 rounded-end" alt="Logo">
+                MyEcoApps
+            </a>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            
+        </div>
+    </div>
+  </nav>
+  
+  
+    
+    <!--Espacio para inicio de sesion de usuarios-->
+    <div class="d-flex align-items-center justify-content-center" style="min-height: 90vh; ">
+        <div class="container text-center p-5 bg-white rounded sombra" style="max-width: 900px;">
+            <img src="{{ url_for('static', filename='Imagenes/apps4.jpeg') }}" class="img-fluid rounded-5 mb-4 img-resized" alt="Imagen de bienvenida">
+            <h1 class="mb-4">Bienvenido a tu Portal MyEcoApps</h1>
+            <p class="lead mb-5">Inicia sesión para comenzar</p>
+            <a href="{{ auth_uri }}" class="btn btn-outline-success btn-lg btn-resized">Iniciar Sesión</a>
+        </div>
+      </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    </body>
+</html>
