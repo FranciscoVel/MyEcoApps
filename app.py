@@ -3,6 +3,10 @@ import subprocess
 import os
 import identity.web
 import requests
+import cx_Oracle
+import logging
+from models.usuarioDAO import usuarioDAO
+from models.conexion_db import ConexionDB
 from flask_session import Session
 import app_config
 from app_config import CLIENT_ID, CLIENT_SECRET, AUTHORITY, SCOPE
@@ -39,6 +43,8 @@ auth = identity.web.Auth(
     client_credential=os.getenv("CLIENT_SECRET"),
 )
 
+logging.basicConfig(filename='mi_app.log', level=logging.DEBUG)
+
 # Archivo raiz
 @app.route('/')
 def index():
@@ -46,7 +52,7 @@ def index():
         scopes=app_config.SCOPE, # Have user consent to scopes during log-in
         redirect_uri=url_for("auth_response", _external=True), # Optional. If present, this absolute URL must match your app's redirect_uri registered in Microsoft Entra admin center
         prompt="select_account",  # Optional.
-        ))
+        ))   
 
 # Ruta para como ususario ver las aplicaciones asignadas, agregar la parte del manual
 @app.route('/aplicaciones')
@@ -113,7 +119,42 @@ def call_downstream_api():
         timeout=30,
     ).json()
     return render_template('display.html', result=api_result)
+
+
+@app.route('/conexion')
+def conexion():
+    db = ConexionDB().get_connection()
+    if db is None:
+        return "No se pudo obtener la conexión a la base de datos."
+    try:
+        cursor = db.cursor()
+        query = "SELECT IDUSER, NOMBRE, CORREO, ROL, REGISTRO FROM USUARIO WHERE REGISTRO = :registro"
+        cursor.execute(query, registro='C123456')
+        return "conexion exitosa"
+    except cx_Oracle.DatabaseError as e:
+        error, = e.args
+        return f"Error al realizar la consulta: {error.message}"
+    finally:
+        cursor.close()
     
+
+@app.route('/buscarUsuario', methods=['POST'])
+def buscarUsuario():
+    logging.debug("Holaaaaaaa")
+
+    data = request.get_json()
+    registro = data.get('registro')
+    if registro:
+        usuario = usuarioDAO.obtener_por_registro(registro)
+    # Retornando un JSON de prueba para verificar la funcionalidad
+    return jsonify({
+        'IDUSER': 123,
+        'NOMBRE': 'Usuario Prueba',
+        'CORREO': 'usuario@prueba.com',
+        'ROL': usuario.id,
+        'REGISTRO': registro
+    })
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)
