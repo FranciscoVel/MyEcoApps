@@ -1,0 +1,98 @@
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 148, in buscarUsuario
+    usuarioDAO.cargarAplicaciones(usuario)
+TypeError: usuarioDAO.cargarAplicaciones() missing 1 required positional argument: 'db'
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 148, in buscarUsuario
+    usuarioDAO.cargarAplicaciones(usuario)
+  File "/home/ecpadmin/MyEcoApps/models/usuarioDAO.py", line 72, in cargarAplicaciones
+    usuario.agregar_aplicacion(aplicacion_obj)
+  File "/home/ecpadmin/MyEcoApps/models/usuario.py", line 13, in agregar_aplicacion
+    if isinstance(aplicacion):
+TypeError: isinstance expected 2 arguments, got 1
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 148, in buscarUsuario
+    usuarioDAO.cargarAplicaciones(usuario)
+  File "/home/ecpadmin/MyEcoApps/models/usuarioDAO.py", line 73, in cargarAplicaciones
+    usuario.agregar_aplicacion(aplicacion_obj)
+  File "/home/ecpadmin/MyEcoApps/models/usuario.py", line 13, in agregar_aplicacion
+    if isinstance(aplicacion):
+TypeError: isinstance expected 2 arguments, got 1
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+DEBUG:root:None
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 148, in buscarUsuario
+    usuarioDAO.cargarAplicaciones(usuario)
+  File "/home/ecpadmin/MyEcoApps/models/usuarioDAO.py", line 62, in cargarAplicaciones
+    cursor.execute(query_aplicaciones, registro=usuario.registro)
+AttributeError: 'str' object has no attribute 'registro'
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 149, in buscarUsuario
+    if isinstance(usuario, usuario):
+TypeError: isinstance() arg 2 must be a type, a tuple of types, or a union
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+DEBUG:root:None
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+DEBUG:root:None

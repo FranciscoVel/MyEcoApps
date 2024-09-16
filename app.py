@@ -140,20 +140,17 @@ def conexion():
 
 @app.route('/buscarUsuario', methods=['POST'])
 def buscarUsuario():
-    logging.debug("Holaaaaaaa")
-
     data = request.get_json()
     registro = data.get('registro')
     if registro:
-        usuario = usuarioDAO.obtener_por_registro(registro)
-    # Retornando un JSON de prueba para verificar la funcionalidad
-    return jsonify({
-        'IDUSER': 123,
-        'NOMBRE': 'Usuario Prueba',
-        'CORREO': 'usuario@prueba.com',
-        'ROL': usuario.id,
-        'REGISTRO': registro
-    })
+        usuario = usuarioDAO.obtenerPorRegistro(registro)
+        if isinstance(usuario, str):  # Si es una cadena, es el mensaje "buscar en el directorio activo" ACA SE DEBE BUSCAR EN EL DIRECTORIO ACTIVO Y DAR RESOUESTA
+            #ACA DEBERA DAR UNA ALERTA DE REGISTRAR AL USUARIO EN LA BASE DE DATOS
+            return jsonify({'mensaje': usuario})  
+        
+        usuarioDAO.cargarAplicaciones(usuario)
+    
+    return jsonify(usuario.to_dict())
 
 
 if __name__ == '__main__':

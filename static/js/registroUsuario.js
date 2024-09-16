@@ -1,4 +1,4 @@
-function buscarUsuario() {
+function buscarUsuarioBD() {
     const registro = document.getElementById('buscarRegistro').value;
 
     fetch('/buscarUsuario', {
@@ -12,26 +12,32 @@ function buscarUsuario() {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        return response.text(); // Lee la respuesta como texto
+        return response.json(); // Convertir la respuesta a JSON
     })
-    .then(text => {
-        try {
-            const data = JSON.parse(text); // Intenta convertir el texto a JSON
-            if (data.error) {
-                document.getElementById('informacionUsuario').innerText = data.error;
-            } else {
-                document.getElementById('informacionUsuario').innerHTML = `
-                    <strong>ID:</strong> ${data.IDUSER}<br>
-                    <strong>Nombre:</strong> ${data.NOMBRE}<br>
-                    <strong>Correo:</strong> ${data.CORREO}<br>
-                    <strong>Rol:</strong> ${data.ROL}<br>
-                    <strong>Registro:</strong> ${data.REGISTRO}
-                `;
+    .then(data => {
+        if (data.error) {
+            document.getElementById('informacionUsuario').innerText = data.error;
+        } else {
+            let aplicacionesHtml = '';
+            if (data.APLICACIONES && data.APLICACIONES.length > 0) {
+                aplicacionesHtml = '<strong>Aplicaciones:</strong><ul>';
+                data.APLICACIONES.forEach(app => {
+                    aplicacionesHtml += `<li><strong>Nombre:</strong> ${app.NOMBRE}</li>`;
+                });
+                aplicacionesHtml += '</ul>';
             }
-        } catch (e) {
-            document.getElementById('informacionUsuario').innerText = 'Error al procesar la respuesta del servidor.';
+    
+            document.getElementById('informacionUsuario').innerHTML = `
+                ${data.IDUSER ? `<strong>ID:</strong> ${data.IDUSER}<br>` : ''}
+                ${data.NOMBRE ? `<strong>Nombre:</strong> ${data.NOMBRE}<br>` : ''}
+                ${data.CORREO ? `<strong>Correo:</strong> ${data.CORREO}<br>` : ''}
+                ${data.ROL ? `<strong>Rol:</strong> ${data.ROL}<br>` : ''}
+                ${data.REGISTRO ? `<strong>Registro:</strong> ${data.REGISTRO}<br>` : ''}
+                ${data.mensaje ? `<strong>Mensaje:</strong> ${data.mensaje}<br>` : ''}
+                ${aplicacionesHtml}
+            `;
         }
-    })
+    })   
     .catch(error => {
         console.error('Error:', error);
         document.getElementById('informacionUsuario').innerText = 'Error al buscar el usuario.';

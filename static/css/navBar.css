@@ -35,12 +35,6 @@
     background-color: transparent;
 }
 
-.navbar-toggler-icon {
-    background-image: url('data:image/svg+xml;base64,...'); /* Puedes usar un icono personalizado aquí */
-    width: 24px;
-    height: 24px;
-}
-
 .navbar-nav .nav-link {
     color: #fff;
     font-weight: bold;
@@ -60,9 +54,24 @@
     background-color: #4caf50; /* Color de fondo del botón de toggler */
 }
 
-.navbar-toggler-icon {
-    background-image: url('data:image/svg+xml;base64,...'); /* Icono del botón de toggler */
+/* Estilo para el botón de navegación */
+.navbar-toggler {
+    border: none; /* Elimina el borde del botón */
+    border-radius: 50%; /* Hace el botón redondo */
+    background-color: transparent; /* Fondo transparente */
+    width: 60px; /* Ajusta el tamaño según tu imagen */
+    height: 60px; /* Ajusta el tamaño según tu imagen */
+    background-image: url("/static/Imagenes/menu.png"); /* Imagen del botón de toggler */
+    background-size: cover; /* Ajusta la imagen para cubrir el botón */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: center; /* Centra la imagen */
 }
+
+/* Estilo para el icono del toggle (ya no es necesario) */
+.navbar-toggler-icon {
+    display: none; /* Oculta el icono de toggler */
+}
+
 
 /* Responsividad */
 @media (max-width: 767.98px) {
