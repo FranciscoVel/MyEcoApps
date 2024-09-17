@@ -1,5 +1,5 @@
 class aplicacion:
-    def __init__(self, id, nombre, ruta, imagen):
+    def __init__(self, id, nombre, ruta = None, imagen = None):
         self.id = id
         self.nombre = nombre
         self.ruta = ruta

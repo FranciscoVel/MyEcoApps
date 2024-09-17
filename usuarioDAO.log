@@ -1,98 +1,125 @@
-DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
-ERROR:app:Exception on /buscarUsuario [POST]
+ERROR:root:Error al obtener aplicaciones: ORA-00936: missing expression
+Help: https://docs.oracle.com/error-help/db/ora-00936/
+ERROR:root:Error al obtener aplicaciones: aplicacion.__init__() missing 2 required positional arguments: 'ruta' and 'imagen'
+DEBUG:root:[{'IDAPP': '2', 'NOMBRE': 'TECHLOG'}]
+ERROR:app:Exception on /asignarAplicaciones [POST]
 Traceback (most recent call last):
   File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/home/ecpadmin/MyEcoApps/app.py", line 148, in buscarUsuario
-    usuarioDAO.cargarAplicaciones(usuario)
-TypeError: usuarioDAO.cargarAplicaciones() missing 1 required positional argument: 'db'
-DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
-ERROR:app:Exception on /buscarUsuario [POST]
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 883, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 902, in finalize_request
+    response = self.make_response(rv)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1174, in make_response
+    raise TypeError(
+TypeError: The view function for 'asignarAplicaciones' did not return a valid response. The function either returned None or ended without a return statement.
+DEBUG:root:[{'IDAPP': '2', 'NOMBRE': 'TECHLOG'}]
+ERROR:app:Exception on /asignarAplicaciones [POST]
 Traceback (most recent call last):
   File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/home/ecpadmin/MyEcoApps/app.py", line 148, in buscarUsuario
-    usuarioDAO.cargarAplicaciones(usuario)
-  File "/home/ecpadmin/MyEcoApps/models/usuarioDAO.py", line 72, in cargarAplicaciones
-    usuario.agregar_aplicacion(aplicacion_obj)
-  File "/home/ecpadmin/MyEcoApps/models/usuario.py", line 13, in agregar_aplicacion
-    if isinstance(aplicacion):
-TypeError: isinstance expected 2 arguments, got 1
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 883, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 902, in finalize_request
+    response = self.make_response(rv)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1174, in make_response
+    raise TypeError(
+TypeError: The view function for 'asignarAplicaciones' did not return a valid response. The function either returned None or ended without a return statement.
 DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
 DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
-ERROR:app:Exception on /buscarUsuario [POST]
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+DEBUG:root:[{'IDAPP': '2', 'NOMBRE': 'TECHLOG'}]
+ERROR:app:Exception on /asignarAplicaciones [POST]
 Traceback (most recent call last):
   File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
     response = self.full_dispatch_request()
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/home/ecpadmin/MyEcoApps/app.py", line 148, in buscarUsuario
-    usuarioDAO.cargarAplicaciones(usuario)
-  File "/home/ecpadmin/MyEcoApps/models/usuarioDAO.py", line 73, in cargarAplicaciones
-    usuario.agregar_aplicacion(aplicacion_obj)
-  File "/home/ecpadmin/MyEcoApps/models/usuario.py", line 13, in agregar_aplicacion
-    if isinstance(aplicacion):
-TypeError: isinstance expected 2 arguments, got 1
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 883, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 902, in finalize_request
+    response = self.make_response(rv)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1174, in make_response
+    raise TypeError(
+TypeError: The view function for 'asignarAplicaciones' did not return a valid response. The function either returned None or ended without a return statement.
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+ERROR:root:Error al asignar aplicaciones: type object 'aplicacionDAO' has no attribute 'asignarAplicacion'
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+ERROR:root:Error al asignar aplicación: 'dict' object has no attribute 'registro'
+ERROR:root:Error al asignar aplicaciones: 'dict' object has no attribute 'registro'
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+ERROR:root:Error al asignar aplicación: 'dict' object has no attribute 'registro'
+ERROR:root:Error al asignar aplicaciones: 'dict' object has no attribute 'registro'
 DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
 DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
 DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
 DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
 DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
 DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+ERROR:root:Error al asignar aplicación: 'dict' object has no attribute 'IDUSER'
+ERROR:root:Error al asignar aplicaciones: 'dict' object has no attribute 'IDUSER'
 DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
 DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
 DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
-DEBUG:root:None
-ERROR:app:Exception on /buscarUsuario [POST]
-Traceback (most recent call last):
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/home/ecpadmin/MyEcoApps/app.py", line 148, in buscarUsuario
-    usuarioDAO.cargarAplicaciones(usuario)
-  File "/home/ecpadmin/MyEcoApps/models/usuarioDAO.py", line 62, in cargarAplicaciones
-    cursor.execute(query_aplicaciones, registro=usuario.registro)
-AttributeError: 'str' object has no attribute 'registro'
-DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
-ERROR:app:Exception on /buscarUsuario [POST]
-Traceback (most recent call last):
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
-    response = self.full_dispatch_request()
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-  File "/home/ecpadmin/MyEcoApps/app.py", line 149, in buscarUsuario
-    if isinstance(usuario, usuario):
-TypeError: isinstance() arg 2 must be a type, a tuple of types, or a union
+ERROR:root:Error al asignar aplicaciones: can only concatenate str (not "dict") to str
 DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
 DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
 DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
-DEBUG:root:None
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+ERROR:root:Error al asignar aplicación: 'dict' object has no attribute 'IDUSER'
+ERROR:root:Error al asignar aplicaciones: 'dict' object has no attribute 'IDUSER'
 DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
 DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
 DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
-DEBUG:root:None
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+ERROR:root:Error al asignar aplicación: 'dict' object has no attribute 'IDUSER'
+ERROR:root:Error al asignar aplicaciones: 'dict' object has no attribute 'IDUSER'
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+DEBUG:root:---------------
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+ERROR:root:Error al asignar aplicación: 'dict' object has no attribute 'IDUSER'
+ERROR:root:Error al asignar aplicaciones: 'dict' object has no attribute 'IDUSER'
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+DEBUG:root:---------------
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+ERROR:root:Error al asignar aplicación: ORA-01036: unrecognized bind variable nombre_app passed to the bind call
+Help: https://docs.oracle.com/error-help/db/ora-01036/
+ERROR:root:Error al asignar aplicaciones: ORA-01036: unrecognized bind variable nombre_app passed to the bind call
+Help: https://docs.oracle.com/error-help/db/ora-01036/
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+DEBUG:root:---------------
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+DEBUG:root:(2, 'TECHLOG', 'RUTA', 'IMG')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+DEBUG:root:(1, 'JAVIER', 'C1234567@ecopetrol.com', 'ADMIN', 'C1234567')
+DEBUG:root:---------------
+DEBUG:root:{'IDUSER': 1, 'NOMBRE': 'JAVIER', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C1234567', 'APLICACIONES': []}
+DEBUG:root:---------------
+DEBUG:root:{'IDUSER': 1, 'NOMBRE': 'JAVIER', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C1234567', 'APLICACIONES': []}
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+DEBUG:root:(2, 'TECHLOG', 'RUTA', 'IMG')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+DEBUG:root:(0, 'FRANCISCO', 'C123456@ecopetrol.com', 'ADMIN', 'C123456')
+DEBUG:root:(2, 'TECHLOG', 'RUTA', 'IMG')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+DEBUG:root:(1, 'JAVIER', 'C1234567@ecopetrol.com', 'ADMIN', 'C1234567')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+DEBUG:root:(1, 'JAVIER', 'C1234567@ecopetrol.com', 'ADMIN', 'C1234567')
+DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
+DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
+DEBUG:root:(2, 'TECHLOG', 'RUTA', 'IMG')

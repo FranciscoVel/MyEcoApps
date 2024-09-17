@@ -17,7 +17,7 @@ class usuarioDAO:
         
         try:
             cursor = db.cursor()
-            query = "SELECT IDUSER, NOMBRE, CORREO, ROL, REGISTRO FROM USUARIO WHERE REGISTRO = :registro"
+            query = "SELECT IDUSER, NOMBRE, CORREO, ROL, REGISTRO FROM AUTOMATION.USUARIO WHERE REGISTRO = :registro"
             cursor.execute(query, registro=registro)
             row = cursor.fetchone()
             logging.debug(row)
@@ -54,9 +54,9 @@ class usuarioDAO:
             # Consulta para obtener las aplicaciones asociadas al usuario
             query_aplicaciones = """
                 SELECT A.IDAPP, A.NOMBRE, A.RUTA, A.IMAGEN
-                FROM APLICACION A
-                INNER JOIN USUARIO_APLICACION UA ON UA.IDAPPFK = A.IDAPP
-                INNER JOIN USUARIO U ON U.IDUSER = UA.IDUSERFK
+                FROM AUTOMATION.APLICACION A
+                INNER JOIN AUTOMATION.USUARIO_APLICACION UA ON UA.IDAPPFK = A.IDAPP
+                INNER JOIN AUTOMATION.USUARIO U ON U.IDUSER = UA.IDUSERFK
                 WHERE U.REGISTRO = :registro
             """
             cursor.execute(query_aplicaciones, registro=usuario.registro)

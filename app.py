@@ -6,6 +6,7 @@ import requests
 import cx_Oracle
 import logging
 from models.usuarioDAO import usuarioDAO
+from models.aplicacionDAO import aplicacionDAO
 from models.conexion_db import ConexionDB
 from flask_session import Session
 import app_config
@@ -26,6 +27,7 @@ template_dir = os.path.join(base_dir, 'Templates')
 
 # Inicializacion de app flask
 app = Flask(__name__, template_folder=template_dir)
+app.secret_key = 'MyEcoApps2024*'
 
 # middleware para corregir el esquema de dirección URL y la información del host en los encabezados de solicitud.
 app.wsgi_app = ProxyFix(app.wsgi_app, x_proto=1, x_host=1)
@@ -65,8 +67,8 @@ def registroUsuario():
     return render_template('registroUsuario.html')
 
 # Ruta para que el admin asigne las apps correspondientes al usuario solicitante
-@app.route('/asignacionApps')
-def asignacionApps():
+@app.route('/asignacionApps1')
+def asignacionApps1():
     return render_template('asignacionApps.html')
 
 # Ruta para que el admin desvincule las aplicaciones al usuario
@@ -119,25 +121,8 @@ def call_downstream_api():
         timeout=30,
     ).json()
     return render_template('display.html', result=api_result)
-
-
-@app.route('/conexion')
-def conexion():
-    db = ConexionDB().get_connection()
-    if db is None:
-        return "No se pudo obtener la conexión a la base de datos."
-    try:
-        cursor = db.cursor()
-        query = "SELECT IDUSER, NOMBRE, CORREO, ROL, REGISTRO FROM USUARIO WHERE REGISTRO = :registro"
-        cursor.execute(query, registro='C123456')
-        return "conexion exitosa"
-    except cx_Oracle.DatabaseError as e:
-        error, = e.args
-        return f"Error al realizar la consulta: {error.message}"
-    finally:
-        cursor.close()
     
-
+#Ruta para buscar usuario en la BD o en el directorio activo y mostrar la informacion
 @app.route('/buscarUsuario', methods=['POST'])
 def buscarUsuario():
     data = request.get_json()
@@ -145,13 +130,84 @@ def buscarUsuario():
     if registro:
         usuario = usuarioDAO.obtenerPorRegistro(registro)
         if isinstance(usuario, str):  # Si es una cadena, es el mensaje "buscar en el directorio activo" ACA SE DEBE BUSCAR EN EL DIRECTORIO ACTIVO Y DAR RESOUESTA
-            #ACA DEBERA DAR UNA ALERTA DE REGISTRAR AL USUARIO EN LA BASE DE DATOS
+            #ACA DEBERA DAR UNA ALERTA DE QUE SE REGISTRO UN USUARIO NUEVO
+            session['usuario'] = ''
             return jsonify({'mensaje': usuario})  
         
         usuarioDAO.cargarAplicaciones(usuario)
+
+        session['usuario'] = usuario.to_dict()
     
     return jsonify(usuario.to_dict())
 
+@app.route('/getAplicaciones', methods=['GET'])
+def get_aplicaciones():
+    try:
+        # Obtener todas las aplicaciones de la base de datos
+        aplicaciones = aplicacionDAO.obtenerTodasApps()
+        aplicaciones_list = [app.to_dict() for app in aplicaciones] 
+        
+        # Obtener el usuario de la sesión
+        usuario = session.get('usuario')
+        
+        # Obtener las aplicaciones asignadas al usuario
+        aplicaciones_asignadas = usuario.get('APLICACIONES', []) if usuario else []
+        
+        # Extraer los IDs de las aplicaciones asignadas
+        asignadas_ids = {app['IDAPP'] for app in aplicaciones_asignadas}
+        
+        # Filtrar la lista de aplicaciones para eliminar las asignadas
+        aplicaciones_disponibles = [app for app in aplicaciones_list if app['IDAPP'] not in asignadas_ids]
+        
+        # Almacenar la lista de aplicaciones disponibles en la sesión (opcional)
+        session['aplicaciones'] = aplicaciones_disponibles
+        
+        # Devolver la lista de aplicaciones disponibles
+        return jsonify({'aplicaciones': aplicaciones_disponibles})
+    
+    except Exception as e:
+        logging.error(f"Error al obtener aplicaciones: {str(e)}")
+        return jsonify({'error': 'Error al obtener las aplicaciones'}), 500
+
+
+#Ruta para que el admin asigne las apps correspondientes al usuario solicitante y enviar el usuario de registroUsuario a asignacionApps
+@app.route('/asignacionApps')
+def asignacionApps():
+    usuario = session.get('usuario')  # Recuperar el usuario de la sesión
+    if not usuario:
+        return redirect(url_for('buscarUsuario'))  # Redirigir si no hay usuario en la sesión
+
+    # Recuperar aplicaciones asignadas al usuario
+    aplicaciones_asignadas = usuario.get('APLICACIONES', [])
+
+    # Enviar el nombre y registro al HTML
+    return render_template(
+        'asignacionApps.html',
+        nombre_usuario=usuario['NOMBRE'],
+        registro_usuario=usuario['REGISTRO']
+    )
+
+@app.route('/asignarAplicaciones', methods=['POST'])
+def asignarAplicaciones():
+    data = request.get_json()
+    usuario = session.get('usuario')
+    aplicaciones = data.get('aplicaciones', [])
+
+    if not usuario or not aplicaciones:
+        return jsonify({'success': False, 'mensaje': 'Datos insuficientes'}), 400
+
+    try:
+        
+        # Asignar aplicaciones al usuario
+        for app in aplicaciones:
+            app_id = app['IDAPP']
+            app_nombre = app['NOMBRE']
+            aplicacionDAO.asignarAplicacion(usuario, app_id)
+
+        return jsonify({'success': True})
+    except Exception as e:
+        logging.error(f"Error al asignar aplicaciones: {str(e)}")
+        return jsonify({'success': False, 'mensaje': 'Error al asignar aplicaciones'}), 500
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)
