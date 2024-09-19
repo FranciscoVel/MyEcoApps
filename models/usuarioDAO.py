@@ -20,7 +20,6 @@ class usuarioDAO:
             query = "SELECT IDUSER, NOMBRE, CORREO, ROL, REGISTRO FROM AUTOMATION.USUARIO WHERE REGISTRO = :registro"
             cursor.execute(query, registro=registro)
             row = cursor.fetchone()
-            logging.debug(row)
             if row:  # Si hay resultados, creamos el objeto usuario
                 return usuario(
                     id=row[0],
@@ -57,13 +56,14 @@ class usuarioDAO:
                 FROM AUTOMATION.APLICACION A
                 INNER JOIN AUTOMATION.USUARIO_APLICACION UA ON UA.IDAPPFK = A.IDAPP
                 INNER JOIN AUTOMATION.USUARIO U ON U.IDUSER = UA.IDUSERFK
-                WHERE U.REGISTRO = :registro
+                WHERE U.REGISTRO = :registro AND
+                      UA.FECHA_DESCARGA IS NULL
+                ORDER BY A.NOMBRE ASC
             """
             cursor.execute(query_aplicaciones, registro=usuario.registro)
             rows = cursor.fetchall()
             
             for row in rows:
-                logging.debug(row)
                 aplicacion_obj = aplicacion(
                     id=row[0],  
                     nombre=row[1],

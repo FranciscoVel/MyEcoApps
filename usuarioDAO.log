@@ -122,4 +122,553 @@ DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
 DEBUG:root:(1, 'JAVIER', 'C1234567@ecopetrol.com', 'ADMIN', 'C1234567')
 DEBUG:root:(0, 'PETREL', 'RUTA', 'IMG')
 DEBUG:root:(1, 'OLGA', 'RUTA', 'IMG')
-DEBUG:root:(2, 'TECHLOG', 'RUTA', 'IMG')
+
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:urllib3.util.retry:Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG:msal.authority:Initializing with Entra authority: https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): login.microsoftonline.com:443
+DEBUG:urllib3.connectionpool:https://login.microsoftonline.com:443 "GET /4b128bfd-e813-493a-ab9a-75779136d0ab/v2.0/.well-known/openid-configuration HTTP/11" 200 1753
+DEBUG:msal.authority:openid_config("https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/v2.0/.well-known/openid-configuration") = {'token_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic'], 'jwks_uri': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/kerberos', 'tenant_region_scope': 'SA', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+DEBUG:msal.application:Broker enabled? None
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 1, 'NOMBRE': 'JAVIER', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C1234567', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 1, 'NOMBRE': 'JAVIER', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C1234567', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 1, 'NOMBRE': 'JAVIER', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C1234567', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:urllib3.util.retry:Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG:msal.authority:Initializing with Entra authority: https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): login.microsoftonline.com:443
+DEBUG:urllib3.connectionpool:https://login.microsoftonline.com:443 "GET /4b128bfd-e813-493a-ab9a-75779136d0ab/v2.0/.well-known/openid-configuration HTTP/11" 200 1753
+DEBUG:msal.authority:openid_config("https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/v2.0/.well-known/openid-configuration") = {'token_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic'], 'jwks_uri': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/kerberos', 'tenant_region_scope': 'SA', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+DEBUG:msal.application:Broker enabled? None
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 1, 'NOMBRE': 'JAVIER', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C1234567', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 141, in buscarUsuario
+    return jsonify(usuario.to_dict())
+UnboundLocalError: local variable 'usuario' referenced before assignment
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 141, in buscarUsuario
+    return jsonify(usuario.to_dict())
+UnboundLocalError: local variable 'usuario' referenced before assignment
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': 'IMG'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 1, 'NOMBRE': 'JAVIER', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C1234567', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 1, 'NOMBRE': 'JAVIER', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C1234567', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 1, 'NOMBRE': 'JAVIER', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C1234567', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 1, 'NOMBRE': 'JAVIER', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C1234567', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 1, 'NOMBRE': 'JAVIER', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C1234567', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 1, 'NOMBRE': 'JAVIER', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C1234567', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 1, 'NOMBRE': 'JAVIER', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C1234567', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 141, in buscarUsuario
+    return jsonify(usuario.to_dict())
+UnboundLocalError: local variable 'usuario' referenced before assignment
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 141, in buscarUsuario
+    return jsonify(usuario.to_dict())
+UnboundLocalError: local variable 'usuario' referenced before assignment
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 138, in buscarUsuario
+    usuarioDAO.cargarAplicaciones(usuario)
+  File "/home/ecpadmin/MyEcoApps/models/usuarioDAO.py", line 62, in cargarAplicaciones
+    cursor.execute(query_aplicaciones, registro=usuario.registro)
+AttributeError: 'str' object has no attribute 'registro'
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 138, in buscarUsuario
+    usuarioDAO.cargarAplicaciones(usuario)
+  File "/home/ecpadmin/MyEcoApps/models/usuarioDAO.py", line 62, in cargarAplicaciones
+    cursor.execute(query_aplicaciones, registro=usuario.registro)
+AttributeError: 'str' object has no attribute 'registro'
+DEBUG:root:True
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 139, in buscarUsuario
+    usuarioDAO.cargarAplicaciones(usuario)
+  File "/home/ecpadmin/MyEcoApps/models/usuarioDAO.py", line 62, in cargarAplicaciones
+    cursor.execute(query_aplicaciones, registro=usuario.registro)
+AttributeError: 'str' object has no attribute 'registro'
+DEBUG:root:True
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 139, in buscarUsuario
+    usuarioDAO.cargarAplicaciones(usuario)
+  File "/home/ecpadmin/MyEcoApps/models/usuarioDAO.py", line 62, in cargarAplicaciones
+    cursor.execute(query_aplicaciones, registro=usuario.registro)
+AttributeError: 'str' object has no attribute 'registro'
+DEBUG:root:True
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 139, in buscarUsuario
+    usuarioDAO.cargarAplicaciones(usuario)
+  File "/home/ecpadmin/MyEcoApps/models/usuarioDAO.py", line 62, in cargarAplicaciones
+    cursor.execute(query_aplicaciones, registro=usuario.registro)
+AttributeError: 'str' object has no attribute 'registro'
+DEBUG:root:True
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 140, in buscarUsuario
+    usuarioDAO.cargarAplicaciones(usuario)
+  File "/home/ecpadmin/MyEcoApps/models/usuarioDAO.py", line 62, in cargarAplicaciones
+    cursor.execute(query_aplicaciones, registro=usuario.registro)
+AttributeError: 'str' object has no attribute 'registro'
+DEBUG:root:True
+DEBUG:root:True
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 137, in buscarUsuario
+    return jsonify({'mensaje': usuario})
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type usuario is not JSON serializable
+DEBUG:root:True
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 137, in buscarUsuario
+    return jsonify({'mensaje': usuario})
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type usuario is not JSON serializable
+DEBUG:root:True
+DEBUG:root:True
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 137, in buscarUsuario
+    return jsonify({'mensaje': usuario})
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type usuario is not JSON serializable
+DEBUG:root:True
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 137, in buscarUsuario
+    return jsonify({'mensaje': usuario})
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type usuario is not JSON serializable
+DEBUG:root:True
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 137, in buscarUsuario
+    return jsonify({'mensaje': usuario})
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type usuario is not JSON serializable
+DEBUG:root:True
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ecpadmin/MyEcoApps/app.py", line 137, in buscarUsuario
+    return jsonify({'mensaje': usuario})
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+  File "/usr/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/usr/lib/python3.10/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/usr/lib/python3.10/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type usuario is not JSON serializable
+DEBUG:root:True
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:True
+DEBUG:root:True
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:True
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:False
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:False
+DEBUG:root:False
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): login.microsoftonline.com:443
+DEBUG:urllib3.connectionpool:https://login.microsoftonline.com:443 "GET /4b128bfd-e813-493a-ab9a-75779136d0ab/.well-known/openid-configuration HTTP/11" 200 1800
+DEBUG:root:True
+DEBUG:root:{'IDUSER': 1, 'NOMBRE': 'JAVIER', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C1234567', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:True
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:True
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:True
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:True
+DEBUG:root:True
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:True
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:urllib3.util.retry:Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG:msal.authority:Initializing with Entra authority: https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): login.microsoftonline.com:443
+DEBUG:urllib3.connectionpool:https://login.microsoftonline.com:443 "GET /4b128bfd-e813-493a-ab9a-75779136d0ab/v2.0/.well-known/openid-configuration HTTP/11" 200 1753
+DEBUG:msal.authority:openid_config("https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/v2.0/.well-known/openid-configuration") = {'token_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic'], 'jwks_uri': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/kerberos', 'tenant_region_scope': 'SA', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+DEBUG:msal.application:Broker enabled? None
+DEBUG:root:False
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}]}
+DEBUG:urllib3.util.retry:Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG:msal.authority:Initializing with Entra authority: https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): login.microsoftonline.com:443
+DEBUG:urllib3.connectionpool:https://login.microsoftonline.com:443 "GET /4b128bfd-e813-493a-ab9a-75779136d0ab/v2.0/.well-known/openid-configuration HTTP/11" 200 1753
+DEBUG:msal.authority:openid_config("https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/v2.0/.well-known/openid-configuration") = {'token_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic'], 'jwks_uri': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/kerberos', 'tenant_region_scope': 'SA', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+DEBUG:msal.application:Broker enabled? None
+DEBUG:root:False
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}]}
+DEBUG:root:False
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}]}
+DEBUG:urllib3.util.retry:Converted retries value: 1 -> Retry(total=1, connect=None, read=None, redirect=None, status=None)
+DEBUG:msal.authority:Initializing with Entra authority: https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab
+DEBUG:msal.authority:openid_config("https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/v2.0/.well-known/openid-configuration") = {'token_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/token', 'token_endpoint_auth_methods_supported': ['client_secret_post', 'private_key_jwt', 'client_secret_basic'], 'jwks_uri': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/discovery/v2.0/keys', 'response_modes_supported': ['query', 'fragment', 'form_post'], 'subject_types_supported': ['pairwise'], 'id_token_signing_alg_values_supported': ['RS256'], 'response_types_supported': ['code', 'id_token', 'code id_token', 'id_token token'], 'scopes_supported': ['openid', 'profile', 'email', 'offline_access'], 'issuer': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/v2.0', 'request_uri_parameter_supported': False, 'userinfo_endpoint': 'https://graph.microsoft.com/oidc/userinfo', 'authorization_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/authorize', 'device_authorization_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/devicecode', 'http_logout_supported': True, 'frontchannel_logout_supported': True, 'end_session_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/oauth2/v2.0/logout', 'claims_supported': ['sub', 'iss', 'cloud_instance_name', 'cloud_instance_host_name', 'cloud_graph_host_name', 'msgraph_host', 'aud', 'exp', 'iat', 'auth_time', 'acr', 'nonce', 'preferred_username', 'name', 'tid', 'ver', 'at_hash', 'c_hash', 'email'], 'kerberos_endpoint': 'https://login.microsoftonline.com/4b128bfd-e813-493a-ab9a-75779136d0ab/kerberos', 'tenant_region_scope': 'SA', 'cloud_instance_name': 'microsoftonline.com', 'cloud_graph_host_name': 'graph.windows.net', 'msgraph_host': 'graph.microsoft.com', 'rbac_url': 'https://pas.windows.net'}
+DEBUG:msal.application:Broker enabled? None
+DEBUG:root:False
+DEBUG:root:{'IDUSER': 2, 'NOMBRE': 'DAVID', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123', 'APLICACIONES': []}
+DEBUG:root:True
+DEBUG:root:{'IDUSER': 2, 'NOMBRE': 'DAVID', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}]}
+DEBUG:root:True
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:False
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 1, 'NOMBRE': 'JAVIER', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C1234567', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:1
+ERROR:app:Exception on /desvincularApp [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 883, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 902, in finalize_request
+    response = self.make_response(rv)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1174, in make_response
+    raise TypeError(
+TypeError: The view function for 'desvincularAplicaciones' did not return a valid response. The function either returned None or ended without a return statement.
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:1
+ERROR:app:Exception on /desvincularApp [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 883, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 902, in finalize_request
+    response = self.make_response(rv)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1174, in make_response
+    raise TypeError(
+TypeError: The view function for 'desvincularAplicaciones' did not return a valid response. The function either returned None or ended without a return statement.
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+ERROR:root:Error al asignar aplicación: 'int' object is not subscriptable
+ERROR:root:Error al asignar aplicaciones: 'int' object is not subscriptable
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+ERROR:root:Error al asignar aplicación: 'int' object is not subscriptable
+ERROR:root:Error al asignar aplicaciones: 'int' object is not subscriptable
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+ERROR:root:Error al asignar aplicación: 'int' object is not subscriptable
+ERROR:root:Error al asignar aplicaciones: 'int' object is not subscriptable
+ERROR:app:Exception on /buscarUsuario [POST]
+Traceback (most recent call last):
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 883, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 902, in finalize_request
+    response = self.make_response(rv)
+  File "/home/ecpadmin/MyEcoApps/venv/lib/python3.10/site-packages/flask/app.py", line 1174, in make_response
+    raise TypeError(
+TypeError: The view function for 'buscarUsuario' did not return a valid response. The function either returned None or ended without a return statement.
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+ERROR:root:Error al asignar aplicación: 'int' object is not subscriptable
+ERROR:root:Error al asignar aplicaciones: 'int' object is not subscriptable
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+ERROR:root:Error al asignar aplicación: Python value of type dict not supported.
+ERROR:root:Error al asignar aplicaciones: Python value of type dict not supported.
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+ERROR:root:Error al asignar aplicación: 'int' object is not subscriptable
+ERROR:root:Error al asignar aplicaciones: 'int' object is not subscriptable
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+ERROR:root:Error al asignar aplicación: ORA-00933: SQL command not properly ended
+Help: https://docs.oracle.com/error-help/db/ora-00933/
+ERROR:root:Error al asignar aplicaciones: ORA-00933: SQL command not properly ended
+Help: https://docs.oracle.com/error-help/db/ora-00933/
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+ERROR:root:Error al asignar aplicación: ORA-00933: SQL command not properly ended
+Help: https://docs.oracle.com/error-help/db/ora-00933/
+ERROR:root:Error al asignar aplicaciones: ORA-00933: SQL command not properly ended
+Help: https://docs.oracle.com/error-help/db/ora-00933/
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 1, 'NOMBRE': 'JAVIER', 'CORREO': 'C1234567@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C1234567', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}
+DEBUG:root:{'IDUSER': 0, 'NOMBRE': 'FRANCISCO', 'CORREO': 'C123456@ecopetrol.com', 'ROL': 'ADMIN', 'REGISTRO': 'C123456', 'APLICACIONES': [{'IDAPP': 1, 'NOMBRE': 'OLGA', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/olga.png'}, {'IDAPP': 0, 'NOMBRE': 'PETREL', 'RUTA': '/download', 'IMAGEN': '/static/Imagenes/petrel.png'}, {'IDAPP': 2, 'NOMBRE': 'TECHLOG', 'RUTA': 'RUTA', 'IMAGEN': '/static/Imagenes/techlog.png'}]}

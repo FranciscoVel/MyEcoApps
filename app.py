@@ -79,7 +79,7 @@ def desvinculacionApps():
 # Ruta que busca el archivo a descargar
 @app.route('/download')
 def download_file():
-    file_path = os.path.join(os.getcwd(), "main.exe")
+    file_path = os.path.join(os.getcwd(),"instaladores", "main.exe")
     if os.path.exists(file_path):
         return send_file(file_path, as_attachment=True)
     else:
@@ -127,19 +127,26 @@ def call_downstream_api():
 def buscarUsuario():
     data = request.get_json()
     registro = data.get('registro')
+    verif = data.get('usuario')
     if registro:
         usuario = usuarioDAO.obtenerPorRegistro(registro)
-        if isinstance(usuario, str):  # Si es una cadena, es el mensaje "buscar en el directorio activo" ACA SE DEBE BUSCAR EN EL DIRECTORIO ACTIVO Y DAR RESOUESTA
+        if isinstance(usuario, str) and verif == False:  # Si es una cadena, es el mensaje "buscar en el directorio activo" ACA SE DEBE BUSCAR EN EL DIRECTORIO ACTIVO Y DAR RESOUESTA
             #ACA DEBERA DAR UNA ALERTA DE QUE SE REGISTRO UN USUARIO NUEVO
             session['usuario'] = ''
             return jsonify({'mensaje': usuario})  
         
-        usuarioDAO.cargarAplicaciones(usuario)
+        # Si el usuario no esta en la BD pero se esta buscando desde la vista de usuario
+        elif isinstance(usuario, str) and verif == True:
+            return jsonify({'mensaje' : 'Usuario no encontrado, comuníquese con soporte'})
+        
+        else:
+            usuarioDAO.cargarAplicaciones(usuario)
 
-        session['usuario'] = usuario.to_dict()
+            session['usuario'] = usuario.to_dict()
+            return jsonify(usuario.to_dict())
     
-    return jsonify(usuario.to_dict())
 
+# Ruta para obtener todas las apps que un usuario en especifico se le pueden asignar
 @app.route('/getAplicaciones', methods=['GET'])
 def get_aplicaciones():
     try:
@@ -158,10 +165,7 @@ def get_aplicaciones():
         
         # Filtrar la lista de aplicaciones para eliminar las asignadas
         aplicaciones_disponibles = [app for app in aplicaciones_list if app['IDAPP'] not in asignadas_ids]
-        
-        # Almacenar la lista de aplicaciones disponibles en la sesión (opcional)
-        session['aplicaciones'] = aplicaciones_disponibles
-        
+                
         # Devolver la lista de aplicaciones disponibles
         return jsonify({'aplicaciones': aplicaciones_disponibles})
     
@@ -170,15 +174,12 @@ def get_aplicaciones():
         return jsonify({'error': 'Error al obtener las aplicaciones'}), 500
 
 
-#Ruta para que el admin asigne las apps correspondientes al usuario solicitante y enviar el usuario de registroUsuario a asignacionApps
+#Ruta para cargar vista para que el admin asigne las apps correspondientes al usuario solicitante y enviar el usuario de registroUsuario a asignacionApps
 @app.route('/asignacionApps')
 def asignacionApps():
     usuario = session.get('usuario')  # Recuperar el usuario de la sesión
     if not usuario:
         return redirect(url_for('buscarUsuario'))  # Redirigir si no hay usuario en la sesión
-
-    # Recuperar aplicaciones asignadas al usuario
-    aplicaciones_asignadas = usuario.get('APLICACIONES', [])
 
     # Enviar el nombre y registro al HTML
     return render_template(
@@ -187,6 +188,7 @@ def asignacionApps():
         registro_usuario=usuario['REGISTRO']
     )
 
+# Ruta para hacer el insert en la BD de las aplicaciones que se le asiganaron a un usuario
 @app.route('/asignarAplicaciones', methods=['POST'])
 def asignarAplicaciones():
     data = request.get_json()
@@ -201,8 +203,23 @@ def asignarAplicaciones():
         # Asignar aplicaciones al usuario
         for app in aplicaciones:
             app_id = app['IDAPP']
-            app_nombre = app['NOMBRE']
             aplicacionDAO.asignarAplicacion(usuario, app_id)
+
+        return jsonify({'success': True})
+    except Exception as e:
+        logging.error(f"Error al asignar aplicaciones: {str(e)}")
+        return jsonify({'success': False, 'mensaje': 'Error al asignar aplicaciones'}), 500
+
+
+@app.route('/desvincularApp', methods=['POST'])
+def desvincularAplicaciones():
+    data = request.get_json()
+    usuario = session.get('usuario')
+    aplicacion = data.get('aplicacion')
+
+    try:
+        logging.debug(usuario)
+        aplicacionDAO.desvincularAplicacion(usuario['IDUSER'], aplicacion)
 
         return jsonify({'success': True})
     except Exception as e:

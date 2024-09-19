@@ -6,7 +6,7 @@ function buscarUsuarioBD() {
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ registro: registro })
+        body: JSON.stringify({ registro: registro, usuario: false })
     })
     .then(response => {
         if (!response.ok) {

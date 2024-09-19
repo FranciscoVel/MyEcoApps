@@ -14,7 +14,7 @@ class aplicacionDAO:
 
         try:
             cursor = db.cursor()
-            query = "SELECT IDAPP, NOMBRE FROM AUTOMATION.APLICACION"
+            query = "SELECT IDAPP, NOMBRE FROM AUTOMATION.APLICACION ORDER BY NOMBRE ASC"
             cursor.execute(query)
             rows = cursor.fetchall()
             aplicaciones = [aplicacion(id=row[0], nombre=row[1]) for row in rows]
@@ -48,6 +48,34 @@ class aplicacionDAO:
             params = {
                 'iduser': usuario['IDUSER'],
                 'id_app': id_app
+            }
+            # Ejecutar la consulta
+            with db.cursor() as cursor:
+                cursor.execute(query, params)
+                db.commit()
+        except Exception as e:
+            logging.error(f"Error al asignar aplicación: {str(e)}")
+            raise
+
+    @staticmethod
+    def desvincularAplicacion(usuario, id_app):
+        try:
+            
+            db = ConexionDB().get_connection()
+            if db is None:
+                logging.error("No se pudo obtener la conexión a la base de datos.")
+                return None
+            
+            query = """
+            UPDATE USUARIO_APLICACION UA
+            SET FECHA_DESCARGA = SYSDATE
+            WHERE UA.IDUSERFK = :iduser AND
+                UA.IDAPPFK  = :idapp AND
+                UA.FECHA_DESCARGA IS NULL
+            """
+            params = {
+                'iduser': usuario,
+                'idapp': id_app
             }
             # Ejecutar la consulta
             with db.cursor() as cursor:

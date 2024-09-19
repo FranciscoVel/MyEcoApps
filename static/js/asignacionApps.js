@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!addButton) return;
 
         // Deshabilitar el botón si el número de aplicaciones seleccionadas es igual al total de aplicaciones
-        if (selectedApps.length >= allApplications.length - 1) {
+        if (selectedApps.length >= allApplications.length ) {
             addButton.disabled = true;
         } else {
             addButton.disabled = false;
