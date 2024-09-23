@@ -30,7 +30,7 @@ class usuarioDAO:
                 )
             else:
                 
-                return "Usuario no encontrado. Buscar en el directorio activo."  # Devolver el mensaje como string
+                return "Usuario no encontrado. Buscando en el directorio activo."  # Devolver el mensaje como string
 
         except cx_Oracle.DatabaseError as e:
             error, = e.args
@@ -39,6 +39,39 @@ class usuarioDAO:
         
         finally:
             cursor.close()
+
+    @staticmethod
+    def obtenerPorMail(mail):
+        db = ConexionDB().get_connection()
+        if db is None:
+            logging.error("No se pudo obtener la conexión a la base de datos.")
+            return None  # Aquí mantenemos el retorno como None si no hay conexión
+        
+        try:
+            cursor = db.cursor()
+            query = "SELECT IDUSER, NOMBRE, CORREO, ROL, REGISTRO FROM AUTOMATION.USUARIO WHERE CORREO = :mail"
+            cursor.execute(query, mail=mail)
+            row = cursor.fetchone()
+            if row:  # Si hay resultados, creamos el objeto usuario
+                return usuario(
+                    id=row[0],
+                    nombre=row[1],
+                    correo=row[2],
+                    rol=row[3],
+                    registro=row[4]
+                )
+            else:
+                
+                return "Usuario no encontrado."  # Devolver el mensaje como string
+
+        except cx_Oracle.DatabaseError as e:
+            error, = e.args
+            logging.error(f"Error al realizar la consulta: {error.message}")
+            return None  # En caso de error, devolver None
+        
+        finally:
+            cursor.close()
+
 
     @staticmethod
     def cargarAplicaciones(usuario):
@@ -78,4 +111,37 @@ class usuarioDAO:
         
         finally:
             cursor.close()
+
+    @staticmethod
+    def registrarUsuario(usuario):
+        try:
+            
+            db = ConexionDB().get_connection()
+            if db is None:
+                logging.error("No se pudo obtener la conexión a la base de datos.")
+                return None
+            
+            query = """
+            INSERT INTO AUTOMATION.USUARIO (IDUSER, NOMBRE, CORREO, ROL, REGISTRO)
+            VALUES (
+                (SELECT NVL(MAX(IDUSER), 0) + 1 FROM AUTOMATION.USUARIO),
+                :nombre,
+                :correo,
+                'USER',
+                :registro
+            )
+
+            """
+            params = {
+                'nombre': usuario['NOMBRE'],
+                'correo': usuario['CORREO'],
+                'registro': usuario['REGISTRO']
+            }
+            # Ejecutar la consulta
+            with db.cursor() as cursor:
+                cursor.execute(query, params)
+                db.commit()
+        except Exception as e:
+            logging.error(f"Error al asignar aplicación: {str(e)}")
+            raise
 
