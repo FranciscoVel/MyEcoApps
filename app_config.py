@@ -13,5 +13,3 @@ SCOPE = ["User.Read", "Mail.Read"]
 
 # Tells the Flask-session extension to store sessions in the filesystem
 SESSION_TYPE = "filesystem"
-
-#_Pv8Q~xtRuzsudIzJdh8e45Ur9TmchAXBjIHlcAh
