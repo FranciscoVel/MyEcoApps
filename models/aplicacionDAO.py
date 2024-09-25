@@ -67,11 +67,11 @@ class aplicacionDAO:
                 return None
             
             query = """
-            UPDATE USUARIO_APLICACION UA
-            SET FECHA_DESCARGA = SYSDATE
+            UPDATE AUTOMATION.USUARIO_APLICACION UA
+            SET FECHA_DESVINCULACION = SYSDATE
             WHERE UA.IDUSERFK = :iduser AND
                 UA.IDAPPFK  = :idapp AND
-                UA.FECHA_DESCARGA IS NULL
+                UA.FECHA_DESVINCULACION IS NULL
             """
             params = {
                 'iduser': usuario,

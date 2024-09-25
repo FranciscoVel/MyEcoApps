@@ -1,13 +1,14 @@
 // Función para buscar usuario y mostrar aplicaciones
 function buscarUsuarioBD() {
-    const registro = document.getElementById('buscarRegistro').value;
+    //ACA SE DEBE GUARDAR EL MAIL CUANDO EL USUARIO SE REGISTRE
+    const mail = document.getElementById('buscarRegistro').value;
 
-    fetch('/buscarUsuario', {
+    fetch('/buscarUsuarioMail', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ registro: registro, usuario: true })
+        body: JSON.stringify({ mail: mail})
     })
     .then(response => response.json())
     .then(data => {
@@ -28,7 +29,7 @@ function buscarUsuarioBD() {
 function mostrarAplicaciones(aplicaciones, nombre_usuario) {
 
     // Convertir solo la primera letra en mayúscula y el resto en minúsculas
-    const nombreFormateado = nombre_usuario.charAt(0).toUpperCase() + nombre_usuario.slice(1).toLowerCase();
+    const nombreFormateado = nombre_usuario.toLowerCase().replace(/\b\w/g, (c) => c.toUpperCase());
 
     // Actualizar el título con el nombre del usuario formateado
     const tituloElement = document.getElementById('tituloAplicaciones');
@@ -37,27 +38,35 @@ function mostrarAplicaciones(aplicaciones, nombre_usuario) {
     const aplicacionesRow = document.getElementById('aplicacionesRow');
     aplicacionesRow.innerHTML = ''; // Limpiar el contenedor
 
-    aplicaciones.forEach(app => {
-        const card = `
-            <div class="col-sm-6 col-md-4 col-lg-3">
-                <div class="card border-dark h-100" data-id="${app.IDAPP}">
-                    <img src="${app.IMAGEN}" class="card-img-top" alt="${app.NOMBRE}">
-                    <div class="card-body card-body-center texto-negro">
-                        <h5 class="card-title card-title-center">${app.NOMBRE}</h5>
-                        <p class="card-text">Descarga el archivo para instalación</p>
-                        <a href="${app.RUTA}" class="btn btn-outline-success descargar-btn" data-idapp="${app.IDAPP}">Descargar</a>
+    if (aplicaciones.length === 0) {
+        // Si la lista de aplicaciones está vacía, mostrar el mensaje de alerta
+        const mensaje = `<div class="alert alert-danger" role="alert">No tienes aplicaciones disponibles.</div>`;
+        aplicacionesRow.insertAdjacentHTML('beforeend', mensaje);
+    } else {
+        // Si hay aplicaciones, generar las tarjetas
+        aplicaciones.forEach(app => {
+            const card = `
+                <div class="col-sm-6 col-md-4 col-lg-3">
+                    <div class="card border-dark h-100" data-id="${app.IDAPP}">
+                        <img src="${app.IMAGEN}" class="card-img-top" alt="${app.NOMBRE}">
+                        <div class="card-body card-body-center texto-negro">
+                            <h5 class="card-title card-title-center">${app.NOMBRE}</h5>
+                            <p class="card-text">Descarga el archivo para instalación</p>
+                            <a href="${app.RUTA}" class="btn btn-outline-success descargar-btn" data-idapp="${app.IDAPP}">Descargar</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        `;
-        aplicacionesRow.insertAdjacentHTML('beforeend', card);
-    });
+            `;
+            aplicacionesRow.insertAdjacentHTML('beforeend', card);
+        });
 
-    // Agregar eventos de click a los botones de descarga después de generar las tarjetas
-    descargarAplicacion();
+        // Agregar eventos de click a los botones de descarga después de generar las tarjetas
+        descargarAplicacion();
+    }
 }
 
-// Función para agregar eventos de descarga al boton y desvincular la app del usuario
+
+// Función para agregar eventos de descarga al boton y registrar la fecha de descarga la app del usuario
 function descargarAplicacion() {
     const botonesDescarga = document.querySelectorAll('.descargar-btn');
     botonesDescarga.forEach(boton => {
@@ -65,7 +74,7 @@ function descargarAplicacion() {
             event.preventDefault(); // Evita que la página se recargue inmediatamente
             const idApp = boton.getAttribute('data-idapp');
             alert(`ID de la app: ${idApp}`);
-            fetch('/desvincularApp', {
+            fetch('/resDescargaApp', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -80,9 +89,6 @@ function descargarAplicacion() {
                     
                     // Redirigir solo después de que la desvinculacion sea exitosa
                     window.location.href = boton.getAttribute('href');
-
-
-                    //buscarUsuarioBD(); ACTIVARLO SI SE DESEA QUE APNEAS SE DESCARGUE SE ACTUALICEN LAS APLICACIONES
                 } else {
                     alert('Error al descargar la aplicacion. Problema en la Base de Datos');
                 }

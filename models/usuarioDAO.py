@@ -21,13 +21,16 @@ class usuarioDAO:
             cursor.execute(query, registro=registro)
             row = cursor.fetchone()
             if row:  # Si hay resultados, creamos el objeto usuario
-                return usuario(
+
+                user = usuario(
                     id=row[0],
                     nombre=row[1],
                     correo=row[2],
                     rol=row[3],
-                    registro=row[4]
-                )
+                    registro=row[4])
+                logging.debug('hola')
+                logging.debug(user)
+                return user
             else:
                 
                 return "Usuario no encontrado. Buscando en el directorio activo."  # Devolver el mensaje como string
@@ -90,7 +93,7 @@ class usuarioDAO:
                 INNER JOIN AUTOMATION.USUARIO_APLICACION UA ON UA.IDAPPFK = A.IDAPP
                 INNER JOIN AUTOMATION.USUARIO U ON U.IDUSER = UA.IDUSERFK
                 WHERE U.REGISTRO = :registro AND
-                      UA.FECHA_DESCARGA IS NULL
+                      UA.FECHA_DESVINCULACION IS NULL
                 ORDER BY A.NOMBRE ASC
             """
             cursor.execute(query_aplicaciones, registro=usuario.registro)
@@ -124,7 +127,7 @@ class usuarioDAO:
             query = """
             INSERT INTO AUTOMATION.USUARIO (IDUSER, NOMBRE, CORREO, ROL, REGISTRO)
             VALUES (
-                (SELECT NVL(MAX(IDUSER), 0) + 1 FROM AUTOMATION.USUARIO),
+                (SELECT NVL(MAX(IDUSER), -1) + 1 FROM AUTOMATION.USUARIO),
                 :nombre,
                 :correo,
                 'USER',

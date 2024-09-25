@@ -6,8 +6,10 @@ import requests
 import cx_Oracle
 import logging
 from models.usuarioDAO import usuarioDAO
+from models.usuario import usuario
 from models.aplicacionDAO import aplicacionDAO
-from models.conexion_db import ConexionDB
+from models.descargaDAO import descargaDAO
+from models.conexion_dbDA import conexionDA
 from flask_session import Session
 import app_config
 from app_config import CLIENT_ID, CLIENT_SECRET, AUTHORITY, SCOPE
@@ -50,8 +52,9 @@ logging.basicConfig(filename='mi_app.log', level=logging.DEBUG)
 # Archivo raiz
 @app.route('/')
 def index():
+    logging.debug(app_config.SCOPE)
     return render_template("inicioSesion.html", version=__version__, **auth.log_in(
-        scopes=app_config.SCOPE, # Have user consent to scopes during log-in
+        scopes = ["User.Read", "Mail.Read"], # Have user consent to scopes during log-in
         redirect_uri=url_for("auth_response", _external=True), # Optional. If present, this absolute URL must match your app's redirect_uri registered in Microsoft Entra admin center
         prompt="select_account",  # Optional.
         ))   
@@ -61,7 +64,7 @@ def index():
 def aplicaciones():
     return render_template('aplicaciones.html')
 
-# Ruta para como admin registrar usuario solicitante
+# Ruta para ir al template como admin registrar usuario solicitante
 @app.route('/registroUsuario')
 def registroUsuario():
     return render_template('registroUsuario.html')
@@ -101,15 +104,35 @@ def auth_response():
     result = auth.complete_log_in(request.args)
     if "error" in result:
         return render_template("auth_error.html", result=result)
-    return redirect(url_for("index"))
+    info = call_downstream_api()
+
+    mail = info['mail']
+    
+    logging.debug(mail)  
+    if mail:
+        #recuperar el usuario por el email que inicio sesion
+        resjson = buscarUsuarioMail(mail)
+
+        #Si es un string quiere decir que no se encontro en la base de datos
+        if isinstance(resjson, str):
+            # Redirigir a la página de error con el mensaje 
+            return render_template("UsuarioNoEncontrado.html", mensaje=resjson)
+        
+        rol = resjson['ROL']
+        if rol == 'ADMIN':
+            session['IDADMIN'] = resjson['IDUSER']
+            return redirect(url_for("registroUsuario"))
+        else :
+            return redirect(url_for("aplicaciones"))
+        
+    return render_template("UsuarioNoEncontrado.html", mensaje= 'Usuario no encontrado, comuníquese con soporte')
 
 # Ruta para cerrar sesion
 @app.route("/logout")
 def logout():
     return redirect(auth.log_out(url_for("index", _external=True)))
 
-# Ruta para obtener JSON de la API de microsoft
-@app.route("/call_downstream_api")
+# Funcion para obtener JSON de la API de microsoft
 def call_downstream_api():
     token = auth.get_token_for_user(app_config.SCOPE)
     if "error" in token:
@@ -120,31 +143,50 @@ def call_downstream_api():
         headers={'Authorization': 'Bearer ' + token['access_token']},
         timeout=30,
     ).json()
-    return render_template('display.html', result=api_result)
+    
+    return api_result
     
 #Ruta para buscar usuario en la BD o en el directorio activo y mostrar la informacion
 @app.route('/buscarUsuario', methods=['POST'])
 def buscarUsuario():
     data = request.get_json()
     registro = data.get('registro')
-    verif = data.get('usuario')
     if registro:
-        usuario = usuarioDAO.obtenerPorRegistro(registro)
-        if isinstance(usuario, str) and verif == False:  # Si es una cadena, es el mensaje "buscar en el directorio activo" ACA SE DEBE BUSCAR EN EL DIRECTORIO ACTIVO Y DAR RESOUESTA
-            #ACA DEBERA DAR UNA ALERTA DE QUE SE REGISTRO UN USUARIO NUEVO
-            session['usuario'] = ''
-            return jsonify({'mensaje': usuario})  
-        
-        # Si el usuario no esta en la BD pero se esta buscando desde la vista de usuario
-        elif isinstance(usuario, str) and verif == True:
-            return jsonify({'mensaje' : 'Usuario no encontrado, comuníquese con soporte'})
+        usuarioTem = usuarioDAO.obtenerPorRegistro(registro)
+
+        # Si es una cadena, busca el usuario en el directorio activo
+        if isinstance(usuarioTem, str): 
+            usuarioDA = conexionDA.ObtenerRegistroDA(registro)
+            if isinstance(usuarioDA, usuario):
+                session['usuario'] = usuarioDA.to_dict()
+                # Combina ambos diccionarios
+                data = {**usuarioDA.to_dict(), 'directorio': 'Usuario no registrado en la base de datos, registre el usuario para asignar aplicaciones'}
+                
+                # Luego usa jsonify con el diccionario combinado
+                return jsonify(data)
+
+            return jsonify({'mensaje': usuarioDA})  
         
         else:
-            usuarioDAO.cargarAplicaciones(usuario)
-
-            session['usuario'] = usuario.to_dict()
-            return jsonify(usuario.to_dict())
+            usuarioDAO.cargarAplicaciones(usuarioTem)
+            logging.debug(usuarioTem.to_dict())
+            session['usuario'] = usuarioTem.to_dict()
+            return jsonify(usuarioTem.to_dict())
     
+# Ruta para buscar el usuario que inicio sesion
+def buscarUsuarioMail(mail):
+    if mail:
+        usuarioTem = usuarioDAO.obtenerPorMail(mail)
+
+        # Si el usuario no esta en la BD pero se esta buscando desde la vista de usuario
+        if isinstance(usuarioTem, str):
+            return 'Usuario no encontrado, comuníquese con soporte'
+        else:
+            if usuarioTem.rol == 'USER':
+                logging.debug(usuarioTem.rol)
+                usuarioDAO.cargarAplicaciones(usuarioTem)
+            session['usuario'] = usuarioTem.to_dict()
+            return usuarioTem.to_dict()
 
 # Ruta para obtener todas las apps que un usuario en especifico se le pueden asignar
 @app.route('/getAplicaciones', methods=['GET'])
@@ -210,7 +252,7 @@ def asignarAplicaciones():
         logging.error(f"Error al asignar aplicaciones: {str(e)}")
         return jsonify({'success': False, 'mensaje': 'Error al asignar aplicaciones'}), 500
 
-
+# Ruta para desvincular una aplicacion de un usuario en especifico
 @app.route('/desvincularApp', methods=['POST'])
 def desvincularAplicaciones():
     data = request.get_json()
@@ -218,13 +260,57 @@ def desvincularAplicaciones():
     aplicacion = data.get('aplicacion')
 
     try:
-        logging.debug(usuario)
+        
         aplicacionDAO.desvincularAplicacion(usuario['IDUSER'], aplicacion)
+
 
         return jsonify({'success': True})
     except Exception as e:
         logging.error(f"Error al asignar aplicaciones: {str(e)}")
-        return jsonify({'success': False, 'mensaje': 'Error al asignar aplicaciones'}), 500
+        return jsonify({'success': False, 'mensaje': 'Error al desvincular aplicaciones'}), 500
+
+#Ruta para registrar un usuario del directorio activo a la base de datos
+@app.route('/registrarUsuario', methods=['POST'])
+def registrarUsuario():
+    try:
+        usuario = session.get('usuario')
+        usuarioDAO.registrarUsuario(usuario)
+        return jsonify({'success': True})
+    except Exception as e:
+        logging.error(f"Error al registrar usuario: {str(e)}")
+        return jsonify({'success': False, 'mensaje': 'Error al registrar usuario en la BD'}), 500  
+
+#Ruta para traer el usuario que esta en sesion en ese momento
+@app.route('/traerUsuarioSession', methods=['GET'])
+def traerUsuarioSession():
+    
+    return jsonify(session.get('usuario'))
+
+# Ruta para cargar de nuevo el usuario para la pagina desvincularApps.js
+@app.route('/recargarUsuario', methods=['POST'])
+def recargarUsuario():
+    
+    usuario =session.get('usuario')
+    usuarioTem = usuarioDAO.obtenerPorRegistro(usuario['REGISTRO'])
+    usuarioDAO.cargarAplicaciones(usuarioTem)
+    session['usuario'] = usuarioTem.to_dict()
+
+    return jsonify({'mensaje' : 'recarga'})
+        
+# Ruta para registrar la fecha de descarga de una aplicacion de un usuario en especifico
+@app.route('/resDescargaApp', methods=['POST'])
+def resDescargaApp():
+    data = request.get_json()
+    usuario = session.get('usuario')
+    aplicacion = data.get('aplicacion')
+    
+    try:
+        descargaDAO.registrarFechaDescarga(usuario['IDUSER'], aplicacion)
+
+        return jsonify({'success': True})
+    except Exception as e:
+        logging.error(f"Error al asignar aplicaciones: {str(e)}")
+        return jsonify({'success': False, 'mensaje': 'Error al registrar fecha de descarga de aplicaciones'}), 500
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)
